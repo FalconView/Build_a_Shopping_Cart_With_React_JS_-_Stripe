@@ -1,5 +1,5 @@
 function Success() {
-  return <h1>Welcome to the Store!</h1>;
+  return <h1>Thank you for your purchase!</h1>;
 }
 
 export default Success;
