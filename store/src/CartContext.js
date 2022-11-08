@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import { productsArray } from "./ProductsStore";
 
-const CartContext = createContext({
+export const CartContext = createContext({
   items: [],
   getProductQuantity: () => {},
   addOneToCart: () => {},
@@ -9,6 +9,24 @@ const CartContext = createContext({
   deleteFromCart: () => {},
   getTotalCost: () => {},
 });
+
+export function CartProvider({ children }) {
+  const [cartProducts, setCartProducts] = useState([]);
+
+  // { id: 1, quantity: 2 }
+
+  const contextValue = {
+    items: [],
+    getProductQuantity,
+    addOneToCart,
+    removeOneFromCart,
+    deleteFromCart,
+    getTotalCost,
+  };
+  return (
+    <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
+  );
+}
 
 // Code Down Here
 
