@@ -27,6 +27,31 @@ export function CartProvider({ children }) {
     return quantity;
   }
 
+  function addOneToCart(id) {
+    const quantity = getProductQuantity(id);
+
+    if (quantity === 0) {
+      setCartProducts([
+        ...cartProducts,
+        {
+          id: id,
+          quantity: 1,
+        },
+      ]);
+    } else {
+      // product is in cart
+      // [ { id: 1, quantity: 3 }, { id: 2, quantity: 1 + 1 }]
+      setCartProducts(
+        cartProducts.map(
+          (product) =>
+            product.id === id // if condition
+              ? { ...product, quantity: product.quantity + 1 } // if statement is true
+              : product // if statement is false
+        )
+      );
+    }
+  }
+
   const contextValue = {
     items: [],
     getProductQuantity,
