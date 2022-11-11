@@ -52,6 +52,37 @@ export function CartProvider({ children }) {
     }
   }
 
+  function removeOneFromCart(id) {
+    const quantity = getProductQuantity(id);
+
+    if (quantity == 1) {
+      deleteFromCart(id);
+    } else {
+      setCartProducts(
+        cartProducts.map(
+          (product) =>
+            product.id === id // if condition
+              ? { ...product, quantity: product.quantity - 1 } // if statement is true
+              : product // if statement is false
+        )
+      );
+      );
+    }
+  }
+
+  function deleteFromCart(id) {
+    // fliter: Gets an array [] if an object meets a condition, add the object to the array
+    // [product1, product2, product3]
+    // delete product2
+    // [product2, product3]
+
+    setCartProducts((cartProducts) =>
+      cartProducts.filter((currentProduct) => {
+        return currentProduct.id != id;
+      })
+    );
+  }
+
   const contextValue = {
     items: [],
     getProductQuantity,
