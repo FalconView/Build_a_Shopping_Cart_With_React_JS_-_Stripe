@@ -104,8 +104,10 @@ export function CartProvider({ children }) {
   );
 }
 
+export default CartProvider;
+
 // Code Down Here
 
 // Context (cart, addToCart, removeCart)
 // Provider -> gives your React app access to all the things in your context
-export default CartContext;
+// export default CartContext;
