@@ -28,6 +28,20 @@ function NavbarComponent() {
           <Modal.Title>Shopping Cart</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {productsCount > 0 ? (
+            <>
+              <p>
+                Items in your cart:
+                {cart.items.map((currentProduct, idx) => (
+                  <h1>{currentProduct.title}</h1>
+                ))}
+                <h1>Total: {cart.getTotalCost().toFixed(2)}</h1>
+                <Button variant="success">Purchase items!</Button>
+              </p>
+            </>
+          ) : (
+            <h1>There are no items in your cart!</h1>
+          )}
           <h1>This is a modal body</h1>
         </Modal.Body>
       </Modal>
