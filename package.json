@@ -1,0 +1,26 @@
+{
+  "name": "build_a_shopping_cart_with_react_js_-_stripe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FalconView/Build_a_Shopping_Cart_With_React_JS_-_Stripe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FalconView/Build_a_Shopping_Cart_With_React_JS_-_Stripe/issues"
+  },
+  "homepage": "https://github.com/FalconView/Build_a_Shopping_Cart_With_React_JS_-_Stripe#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "stripe": "^11.1.0"
+  }
+}
