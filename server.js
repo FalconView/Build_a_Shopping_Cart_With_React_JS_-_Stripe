@@ -4,4 +4,40 @@
 // Camera: price_1M65TgHHymDcgpa7euzgG8JL
 const express = require("express");
 var cors = require("cors");
-const stripe = reqiure("stripe")("");
+const stripe = reqiure("stripe")(
+  "sk_test_51M65NIHHymDcgpa7ntrdLjXLyzyHnHT9QClncFIFRbwMJI6bJze9Vvafa4CvG1E6HTnquQBqz5Ldfd0f2oNfuktq00ndXuCB62"
+);
+
+const app = express();
+app.use(cors());
+app.use(express.static("public"));
+app.use(express.json());
+
+app.post("/checkout", async (req, res) => {
+  /* 
+    req.body.items
+    [
+        {
+            id: 1,
+            quantity: 3
+        }
+    ]
+
+    stripe wants
+    [
+        {
+            price: 1,
+            quantity: 3
+        }
+    ]
+    */
+
+  const items = req.body.items;
+  let lineItems = [];
+  items.forEach((item) => {
+    lineItems.push({
+      price: item.id,
+      quantity: item.quantity,
+    });
+  });
+});
